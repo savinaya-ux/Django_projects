@@ -1,0 +1,33 @@
+<tr>
+    <th>Employee ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Department</th>
+    <th>Designation</th>
+    <th>Salary</th>
+    <th>Joining Date</th>
+    <th>Address</th>
+    <th>Action</th>
+</tr>
+
+{% for employee in employees %} #for add an edit button
+<tr>
+    <td>{{ employee.employee_id }}</td>
+    <td>{{ employee.name }}</td>
+    <td>{{ employee.email }}</td>
+    <td>{{ employee.phone }}</td>
+    <td>{{ employee.department }}</td>
+    <td>{{ employee.designation }}</td>
+    <td>{{ employee.salary }}</td>
+    <td>{{ employee.joining_date }}</td>
+    <td>{{ employee.address }}</td>
+    <td>
+        <a href="{% url 'update_employee' employee.id %}">Edit</a>
+    </td>
+    <td>
+        <a href="{% url 'update_employee' employee.id %}">Edit</a> |
+        <a href="{% url 'delete_employee' employee.id %}">Delete</a>
+    </td>
+</tr>
+{% endfor %}
